@@ -9,6 +9,7 @@
 
 @push('script')
     <script>
+        // ------AUTO SCROLL TICKER------//
         const ticker = document.getElementById('ticker');
         let scrollSpeed = 0.5; // speed control
         let position = 0;
@@ -29,6 +30,18 @@
         // Pause on hover
         ticker.addEventListener('mouseenter', () => scrollSpeed = 0);
         ticker.addEventListener('mouseleave', () => scrollSpeed = 0.5);
+
+        // ------SLIDER------//
+        const slider = document.getElementById('slider');
+
+        function slideLeft() {
+        slider.scrollBy({ left: -300, behavior: 'smooth' });
+        }
+
+        function slideRight() {
+            slider.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+
     </script>
 
 @endpush
@@ -114,6 +127,85 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-------- STUDENT-LOVE ---------->
+    <section class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+                <!-- LEFT IMAGE -->
+                <div class="flex justify-center">
+                    <img src="{{ asset('assets/images/home/student.png') }}"
+                        alt="Student"
+                        class="rounded-xl w-full max-w-md object-cover">
+                </div>
+
+                <!-- RIGHT CONTENT -->
+                <div>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
+                        Shape Your Future with Expert
+                    </h2>
+
+                    <p class="mt-4 text-gray-600 max-w-xl">
+                        We help students make informed decisions about their education and career,
+                        scholarships, and guide you at every step to ensure a successful academic journey.
+                    </p>
+
+                    <!-- SLIDER -->
+                    <div class="relative mt-10">
+
+                        <!-- Arrow Left -->
+                        <button onclick="slideLeft()"
+                            class="hidden sm:flex absolute -left-10 top-1/2 -translate-y-1/2
+                                w-10 h-10 rounded-full border border-gray-300
+                                items-center justify-center hover:bg-gray-100">
+                            ❮
+                        </button>
+
+                        <!-- Cards -->
+                        <div id="slider"
+                            class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory
+                                pb-4 sm:overflow-hidden">
+
+                            <!-- Card 1 -->
+                            <div class="snap-center min-w-[260px] bg-white rounded-xl shadow-md p-6 text-center">
+                                <div class="w-16 h-16 mx-auto rounded-full bg-yellow-400 flex items-center justify-center">
+                                    <i class="fas fa-graduation-cap text-3xl text-[#0a234f]"></i>
+                                </div>
+                                <h4 class="mt-4 font-semibold">Expert Educational Guidance</h4>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="snap-center min-w-[260px] bg-white rounded-xl shadow-md p-6 text-center">
+                                <div class="w-16 h-16 mx-auto rounded-full bg-yellow-400 flex items-center justify-center">
+                                    <i class="fas fa-file-alt text-3xl text-[#0a234f]"></i>
+                                </div>
+                                <h4 class="mt-4 font-semibold">Comprehensive Services</h4>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="snap-center min-w-[260px] bg-white rounded-xl shadow-md p-6 text-center">
+                                <div class="w-16 h-16 mx-auto rounded-full bg-yellow-400 flex items-center justify-center">
+                                    <i class="fas fa-user-graduate text-3xl text-[#0a234f]"></i>
+                                </div>
+                                <h4 class="mt-4 font-semibold">Student Centered Approach</h4>
+                            </div>
+                        </div>
+
+                        <!-- Arrow Right -->
+                        <button onclick="slideRight()"
+                            class="hidden sm:flex absolute -right-10 top-1/2 -translate-y-1/2
+                                w-10 h-10 rounded-full border border-gray-300
+                                items-center justify-center hover:bg-gray-100">
+                            ❯
+                        </button>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
